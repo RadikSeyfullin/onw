@@ -1,0 +1,63 @@
+{% extends 'home_layout.html' %}
+{% block content %}
+{% load staticfiles %}
+<section class="section section-sm section-first bg-default text-md-left">
+  <div class="container">
+    <div class="row row-50 justify-content-center align-items-xl-center">
+      <div class="col-md-10 col-lg-5 col-xl-6"><img style="object-fit: cover; width: 520px; height: 564px;" src="{% static 'home_static/images/about-1-519x564.jpg' %}" alt="" width="519" height="564"/>
+      </div>
+      <div class="col-md-10 col-lg-7 col-xl-6">
+        <h1 class="text-spacing-25 font-weight-normal" style="color: #01b3a7;">Вход / Регистрация</h1>
+        <!-- Bootstrap tabs-->
+        <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-4">
+          <!-- Nav tabs-->
+          <ul class="nav nav-tabs">
+            <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-4-1" data-toggle="tab">Регистрация</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-4-2" data-toggle="tab">Вход</a></li>
+          </ul>
+          <!-- Tab panes-->
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="tabs-4-1">
+              <form id="register_view" class="register_form" action="{% url 'Registr' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                 <label for="register_email">Email</label>
+                 <input type="email" class="form-control" id="register_email" placeholder="Эл. почта">
+                </div>
+                <div class="form-group">
+                  <label for="register_username">Имя пользователя</label>
+                  <input type="email" class="form-control" id="register_username" placeholder="В формате (Имя Фамилия)">
+                </div>
+                <div class="form-group">
+                  <label for="register_password">Пароль</label>
+                  <input type="password" class="form-control" id="register_password"placeholder="Пароль">
+                </div>
+                <div class="form-group">
+                  <label for="register_password_r">Повторите пароль</label>
+                  <input type="password" class="form-control" id="register_password_r" placeholder="Повторите пароль">
+                </div>
+                <input type="submit" name="register" class="reg_log" value="Зарегестрироваться">
+              </form>
+            </div>
+            <div class="tab-pane fade" id="tabs-4-2">
+              <form id="signin_view" class="signin_form" action="{% url 'Login' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                 <label for="signin_email">Email</label>
+                 <input type="email" name="email" class="form-control" id="signin_email" placeholder="Эл. почта">
+                </div>
+                <div class="form-group">
+                  <label for="signin_password">Пароль</label>
+                  <input type="password" name="password" class="form-control" id="signin_password"placeholder="Пароль">
+                </div>
+                <input type="submit" name="login" class="reg_log" value="Войти">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
