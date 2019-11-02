@@ -22,19 +22,19 @@
                 {% csrf_token %}
                 <div class="form-group">
                  <label for="register_email">Email</label>
-                 <input type="email" class="form-control" id="register_email" placeholder="Эл. почта">
+                 <input type="email" class="form-control" id="register_email" name="email" placeholder="Эл. почта">
                 </div>
                 <div class="form-group">
                   <label for="register_username">Имя пользователя</label>
-                  <input type="email" class="form-control" id="register_username" placeholder="В формате (Имя Фамилия)">
+                  <input type="text" class="form-control" id="register_username" name="name" placeholder="В формате (Имя Фамилия)">
                 </div>
                 <div class="form-group">
                   <label for="register_password">Пароль</label>
-                  <input type="password" class="form-control" id="register_password"placeholder="Пароль">
+                  <input type="password" class="form-control" id="register_password" name="password" placeholder="Пароль">
                 </div>
                 <div class="form-group">
                   <label for="register_password_r">Повторите пароль</label>
-                  <input type="password" class="form-control" id="register_password_r" placeholder="Повторите пароль">
+                  <input type="password" class="form-control" id="register_password_r" name="r_password" placeholder="Повторите пароль">
                 </div>
                 <input type="submit" name="register" class="reg_log" value="Зарегестрироваться">
               </form>

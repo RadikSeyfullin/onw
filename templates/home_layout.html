@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
   <head>
@@ -47,14 +47,6 @@
                   <ul class="rd-navbar-corporate-contacts">
                     <li>
                       <div class="unit unit-spacing-xs">
-                        <div class="unit-left"><span class="icon fa fa-clock-o"></span></div>
-                        <div class="unit-body">
-                          <p>09:00 — 18:00 <span>пн - пт</span></p>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="unit unit-spacing-xs">
                         <div class="unit-left"><span class="icon fa fa-phone"></span></div>
                         <div class="unit-body"><a class="link-phone" href="tel:#">+79774386757</a></div>
                       </div>
@@ -64,8 +56,10 @@
                   {% else %}
                     {% if is_auth %}
                       <div class="dropdown show">
-                        <a class="button button-md button-default-outline-2 button-ujarak" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.get_full_name }}</a>
+                        <a style="min-width: 200px;" class="button button-md button-default-outline-2 button-ujarak" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.get_full_name }}</a>
                         <div class="dropdown-menu name-menu" aria-labelledby="dropdownMenuLink">
+                          {% if user.is_staff %}<a class="dropdown-item" href="{% url 'admin:index' %}"><span class="icon fa fa-heart"></span> Админ-панель</a><div class="dropdown-divider"></div>{% endif %}
+                          <a class="dropdown-item" href="{% url 'TravelsMy' %}"><span class="icon fa fa-map"></span> Мои путешествия</a>
                           <a class="dropdown-item" href="#"><span class="icon fa fa-user"></span> Профиль</a>
                           <a class="dropdown-item" href="#"><span class="icon fa fa-cog"></span> Настройки</a>
                           <div class="dropdown-divider"></div>
@@ -95,7 +89,7 @@
                     </li>
                     <li class="rd-nav-item{% if current_page == 'About' %} active{% endif %}"><a class="rd-nav-link" href="{% url 'AboutPage' %}">О нас</a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">Контакты</a>
+                    <li class="rd-nav-item{% if current_page == 'Travels' %} active{% endif %}"><a class="rd-nav-link" href="{% url 'TravelsPage' %}">Путешествия</a>
                     </li>
                   </ul>
                 </div>

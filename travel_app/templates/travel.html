@@ -1,0 +1,82 @@
+{% extends 'home_layout.html' %}
+{% block content %}
+{% load staticfiles %}
+<section class="breadcrumbs-custom-inset">
+  <div class="breadcrumbs-custom context-dark bg-overlay-60">
+    <div class="container">
+      <h2 class="breadcrumbs-custom-title">{{ travel.name }}</h2>
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="{% url 'HomePage' %}">Главная</a></li>
+        <li><a href="{% url 'TravelsPage' %}">Путешествия</a></li>
+        <li class="active">{{ travel.name }}</li>
+      </ul>
+    </div>
+    <div class="box-position" style="background-image: url({{ travel.image.url }});"></div>
+  </div>
+</section>
+<section class="section section-sm bg-default">
+  <div class="container">
+    <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Путешествие</span></h3>
+    <div class="row row-sm row-40 row-md-50">
+      <div class="col-sm-6 col-md-12 wow fadeInRight">
+        <!-- Product Big-->
+        <article class="product-big">
+          <div class="unit flex-column flex-md-row align-items-md-stretch">
+            <div class="unit-left"><a class="product-big-figure" href="#"><img src="{{ travel.image.url }}" alt="" width="600" height="366"/></a></div>
+            <div class="unit-body">
+              <div class="product-big-body">
+                <h5 class="product-big-title"><a href="#">{{ travel.name }}</a></h5>
+                <div class="group-sm group-middle justify-content-start">
+                  <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span><span class="icon material-icons-star_border"></span></div><a class="product-big-reviews" href="#">{{ travel.members }} человек</a>
+                </div>
+                <p class="product-big-text">{{ travel.description }}</p>
+                {% if travel_creator.id == user.id %}
+                    <a class="button button-black-outline button-ujarak not-active" href="{% url 'TravelsPage' %}{{ travel.id }}/unsign">Отписаться</a>
+                    <a class="button button-black-outline button-ujarak" href="{% url 'TravelsPage' %}{{ travel.id }}/delete">Удалить</a>
+                    <br><small class="text-muted">Создатель может только удалить путешествие</small>
+                {% else %}
+                  {% if signed_user %}
+                    <a class="button button-black-outline button-ujarak" href="{% url 'TravelsPage' %}{{ travel.id }}/unsign">Отписаться</a>
+                  {% else %}
+                    <a class="button button-black-outline button-ujarak" href="{% url 'TravelsPage' %}{{ travel.id }}/sign">Записаться</a>
+                  {% endif %}
+                {% endif %}
+                <hr style="margin-top: 20px; margin-bottom: 20px;">
+                <span style="font-size: 18px; font-weight: bold;">Создатель</span><br>
+                <a href="#">{{ travel_creator.get_full_name }}</a>
+                <div class="product-big-price-wrap"><span class="product-big-price">{{ travel.start_date|date:"d M Y" }}</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <h3 class="mt-5">Участники:</h3>
+    <div class="row row-30 justify-content-center box-ordered">
+          {% for member in members %}
+            {% for u in users %}
+              {% if u == member.user_id %}
+                <div class="col-sm-6 col-md-5 col-lg-3">
+                  <!-- Team Modern-->
+                  <article class="team-modern">
+                    <div class="team-modern-header"><a class="team-modern-figure" href="#"><img class="img-circles" src="{{ u.avatar.url }}" alt="" width="118" height="118"/></a>
+                      <svg x="0px" y="0px" width="270px" height="70px" viewbox="0 0 270 70" enable-background="new 0 0 270 70" xml:space="preserve">
+                        <g>
+                          <path fill="#161616" d="M202.085,0C193.477,28.912,166.708,50,135,50S76.523,28.912,67.915,0H0v70h270V0H202.085z"></path>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="team-modern-caption">
+                      <h6 class="team-modern-name"><a href="#">{{ u.get_full_name }}</a></h6>
+                      <p class="team-modern-status">{{ u.country }} / {{ u.city }}</p>
+                      {% if travel_creator.id == u.id %}<p class="text-muted">Создатель</p>{% endif %}
+                    </div>
+                  </article>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

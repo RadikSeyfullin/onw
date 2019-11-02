@@ -264,8 +264,9 @@ disabled look for disabled choices in the results dropdown
 
 .name-menu > a > span {
   text-decoration: none;
-  width: 15px;
+  width: 10px;
   margin-right: 10px;
+  margin-left: -10px;
 }
 
 .reg_log {
@@ -279,4 +280,11 @@ disabled look for disabled choices in the results dropdown
 	font-family: 'RalewaySemiBold' ,sans-serif;
 	color: #FFF;
 	cursor: pointer;
+}
+
+.not-active {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  background-color: #ccc;
 }

@@ -1,0 +1,48 @@
+{% extends 'home_layout.html' %}
+{% block content %}
+{% load staticfiles %}
+<section class="breadcrumbs-custom-inset">
+  <div class="breadcrumbs-custom context-dark bg-overlay-60">
+    <div class="container">
+      <h2 class="breadcrumbs-custom-title">Мои утешествия</h2>
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="{% url 'HomePage' %}">Главная</a></li>
+        <li><a href="{% url 'TravelsPage' %}">Путешествия</a></li>
+        <li class="active">Мои путешествия</li>
+      </ul>
+    </div>
+    <div class="box-position" style="background-image: url({% static 'home_static/images/breadcrumbs-bg.jpg' %});"></div>
+  </div>
+</section>
+<section class="section section-sm bg-default">
+  <div class="container">
+    <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Мои путешествия</span></h3>
+    <div class="row row-sm row-40 row-md-50">
+      {% for travel in travels %}
+        {% for mem in members %}
+          {% if travel.id == mem.travel_id.id %}
+          <div class="col-sm-6 col-md-12 wow fadeInRight">
+            <!-- Product Big-->
+            <article class="product-big">
+              <div class="unit flex-column flex-md-row align-items-md-stretch">
+                <div class="unit-left"><a class="product-big-figure" href="{% url 'TravelsPage' %}{{ travel.id }}"><img src="{{ travel.image.url }}" alt="" width="600" height="366"/></a></div>
+                <div class="unit-body">
+                  <div class="product-big-body">
+                    <h5 class="product-big-title"><a href="{% url 'TravelsPage' %}{{ travel.id }}">{{ travel.name }}</a></h5>
+                    <div class="group-sm group-middle justify-content-start">
+                      <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span><span class="icon material-icons-star_border"></span></div><a class="product-big-reviews" href="#">{{ travel.members }} человек</a>
+                    </div>
+                    <p class="product-big-text">{{ travel.description }}</p><a class="button button-black-outline button-ujarak" href="{% url 'TravelsPage' %}{{ travel.id }}">Посмотреть</a>
+                    <div class="product-big-price-wrap"><span class="product-big-price">{{ travel.start_date|date:"d M Y" }}</span></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
