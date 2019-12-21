@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'onw.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'onaway',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '1998radik328',
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'postgres',
+        'HOST': 'postgres',
         'PORT': '5432',
     }
 }
@@ -114,7 +114,7 @@ AUTH_USER_MODEL = 'user_manager.CustomUser'
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Europe/Moscow'
 
@@ -130,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIR = (
+STATIC_DIR = (
     os.path.join(BASE_DIR, 'static'),
 )
 MEDIA_URL = '/media/'
