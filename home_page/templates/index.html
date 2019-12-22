@@ -46,7 +46,7 @@
   <div class="swiper-pagination"></div>
 </section>
 <!-- Section Box Categories-->
-<section class="section section-lg section-top-1 bg-gray-4">
+<section class="section section-lg section-top-1 bg-gray-5">
   <div class="container offset-negative-1">
     <div class="box-categories cta-box-wrap">
       <div class="box-categories-content">
@@ -103,7 +103,7 @@
               <div class="tab-pane fade show active" id="tabs-7-1">
                 <p>Wonder Tour is committed to bringing our clients the best in value and quality travel arrangements. We are passionate about travel and sharing the world's wonders with you.</p>
                 <div class="group-md group-middle">
-                  {% if is_auth %}
+                  {% if user.is_authenticated %}
                   <a class="button button-secondary button-pipaluk" href="#">Перейти в профиль</a>
                   {% else %}
                   <a class="button button-secondary button-pipaluk" href="#">Регистрация</a>
@@ -113,7 +113,7 @@
               <div class="tab-pane fade" id="tabs-7-2">
                 <p>We are proud to offer excellent quality and value for money in our tours, which give you the chance to experience your chosen destination in an authentic and exciting way.</p>
                 <div class="group-md group-middle">
-                  {% if is_auth %}
+                  {% if user.is_authenticated %}
                   <a class="button button-secondary button-pipaluk" href="#">Перейти в профиль</a>
                   {% else %}
                   <a class="button button-secondary button-pipaluk" href="#">Регистрация</a>
@@ -123,7 +123,7 @@
               <div class="tab-pane fade" id="tabs-7-3">
                 <p>Our mission is to provide the ultimate travel planning experience while becoming a one-stop shop for every travel service available in the industry.</p>
                 <div class="group-md group-middle">
-                  {% if is_auth %}
+                  {% if user.is_authenticated %}
                   <a class="button button-secondary button-pipaluk" href="#">Перейти в профиль</a>
                   {% else %}
                   <a class="button button-secondary button-pipaluk" href="#">Регистрация</a>

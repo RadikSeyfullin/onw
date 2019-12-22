@@ -54,13 +54,13 @@
                   </ul>
                   {% if current_page == 'Auth' %}
                   {% else %}
-                    {% if is_auth %}
+                    {% if user.is_authenticated %}
                       <div class="dropdown show">
                         <a style="min-width: 200px;" class="button button-md button-default-outline-2 button-ujarak" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.get_full_name }}</a>
                         <div class="dropdown-menu name-menu" aria-labelledby="dropdownMenuLink">
                           {% if user.is_staff %}<a class="dropdown-item" href="{% url 'admin:index' %}"><span class="icon fa fa-heart"></span> Админ-панель</a><div class="dropdown-divider"></div>{% endif %}
                           <a class="dropdown-item" href="{% url 'TravelsMy' %}"><span class="icon fa fa-map"></span> Мои путешествия</a>
-                          <a class="dropdown-item" href="#"><span class="icon fa fa-user"></span> Профиль</a>
+                          <a class="dropdown-item" href="{% url 'ProfilePage' %}"><span class="icon fa fa-user"></span> Профиль</a>
                           <a class="dropdown-item" href="#"><span class="icon fa fa-cog"></span> Настройки</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="{% url 'AuthLogout' %}"><span class="icon fa fa-power-off"></span> Выйти</a>
@@ -142,9 +142,9 @@
                       <li><a href="{% url 'AboutPage' %}">О нас</a></li>
                       <li><a href="#">Путешествия</a></li>
                       <li><a href="#">Наша команда</a></li>
-                      <li><a href="#">Геллерея</a></li>
+                      <li><a href="#">Галерея</a></li>
                     </ul>
-                    {% if is_auth %}
+                    {% if user.is_authenticated %}
                       <div class="group-md group-middle justify-content-sm-start"><a class="button button-lg button-primary button-ujarak" href="#">{{ user.get_full_name }}</a></div>
                     {% else %}
                       <div class="group-md group-middle justify-content-sm-start"><a class="button button-lg button-primary button-ujarak" href="{% url 'LoginPage' %}">Регистрация</a></div>

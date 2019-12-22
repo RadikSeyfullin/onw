@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home_page',
     'auth_app',
     'travel_app',
+    'profile_app',
 ]
 
 MIDDLEWARE = [
