@@ -1,8 +1,29 @@
-{% extends 'profile_layout.html' %}
-{% block content %}
 {% load static %}
 
-<div class="wrapper">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>WorkWise Html Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="icon" href="{% static 'home_static/images/favicon.ico' %}" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/line-awesome.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/line-awesome-font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'profile_static/lib/slick/slick.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'profile_static/lib/slick/slick-theme.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/responsive.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'home_static/css/style.css' %}">
+</head>
+
+<body>
+	<div class="wrapper">
 		<section class="cover-sec">
 			<!-- <img src="{% static 'home_static/images/profile-background.jpg' %}" alt=""> -->
 		</section>
@@ -524,6 +545,59 @@
 					</div><!-- main-section-data end-->
 				</div> 
 			</div>
-        </main>
-</div>
-{% endblock %}
+		</main>
+
+
+		<footer>
+			<div class="footy-sec mn no-margin">
+				<div class="container">
+					<ul>
+						<li><a href="#" title="">Help Center</a></li>
+						<li><a href="#" title="">Privacy Policy</a></li>
+						<li><a href="#" title="">Community Guidelines</a></li>
+						<li><a href="#" title="">Cookies Policy</a></li>
+						<li><a href="#" title="">Career</a></li>
+						<li><a href="#" title="">Forum</a></li>
+						<li><a href="#" title="">Language</a></li>
+						<li><a href="#" title="">Copyright Policy</a></li>
+					</ul>
+					<p><img src="images/copy-icon2.png" alt="">Copyright 2018</p>
+					<img class="fl-rgt" src="images/logo2.png" alt="">
+				</div>
+			</div>
+		</footer><!--footer end-->
+
+
+		<div class="overview-box" id="create-portfolio">
+			<div class="overview-edit">
+				<h3>Create Portfolio</h3>
+				<form>
+					<input type="text" name="pf-name" placeholder="Portfolio Name">
+					<div class="file-submit">
+						<input type="file" name="file">
+					</div>
+					<div class="pf-img">
+						<img src="http://via.placeholder.com/60x60" alt="">
+					</div>
+					<input type="text" name="website-url" placeholder="htp://www.example.com">
+					<button type="submit" class="save">Save</button>
+					<button type="submit" class="cancel">Cancel</button>
+				</form>
+				<a href="#" title="" class="close-box"><i class="la la-close"></i></a>
+			</div><!--overview-edit end-->
+		</div><!--overview-box end-->
+
+
+
+	</div><!--theme-layout end-->
+
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/popper.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/slick/slick.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
+

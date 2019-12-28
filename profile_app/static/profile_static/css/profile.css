@@ -1,0 +1,28 @@
+header.top-bar {
+    height: 70px;
+    background-color: #162e44;
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.top-bar .logo {
+    font-size: 50px;
+    line-height: 70px;
+    font-weight: 100;
+}
+
+.cover-sec {
+    background-image: url('../images/profile-background.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+}
+
+.user-tab-sec h3 {
+    float:left !important;
+}
+
+#ui-to-top {
+    line-height: 46px;
+}
